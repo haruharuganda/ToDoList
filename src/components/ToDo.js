@@ -12,9 +12,11 @@ function ToDo() {
 
   return (
     <div className="app">
-      <Navigation />
-      <Head cards={cards} setCards={setCards} />
-      <Main cards={cards} setCards={setCards} />
+      <div className="container">
+        <Navigation />
+        <Head cards={cards} setCards={setCards} />
+        <Main cards={cards} setCards={setCards} />
+      </div>
     </div>
   );
 }
