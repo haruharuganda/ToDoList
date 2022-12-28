@@ -1,10 +1,6 @@
-function CustomButton(props) {
-  const { ClassName, onClick, children, working } = props;
-
+function CustomButton({ ClassName, onClick, children, working }) {
   let text = children;
-  console.log(working);
   if (!working && text === "완료") {
-    console.log(working);
     text = "취소";
   }
   return (
