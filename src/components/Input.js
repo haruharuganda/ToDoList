@@ -1,13 +1,13 @@
-const Input = (props) => {
+const Input = ({ current, children, seting, blankchack }) => {
   return (
     <div className="input-container">
       <div className="input-group">
-        <label className="input-label">{props.children}</label>
+        <label className="input-label">{children}</label>
         <input
           type={"text"}
           className="add-input"
-          value={props.current}
-          onChange={(e) => props.seting(e.target.value)}
+          value={current}
+          onChange={(e) => seting(e.target.value)}
         ></input>
       </div>
     </div>

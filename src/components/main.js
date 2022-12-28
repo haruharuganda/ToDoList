@@ -1,7 +1,6 @@
 import ToDoList from "./ToDoList";
 
 const Main = ({ cards, setCards }) => {
-
   const deleteCardsHandler = (id) => {
     const newCardsList = cards.filter((cards) => cards.id !== id);
     setCards(newCardsList);
@@ -10,14 +9,12 @@ const Main = ({ cards, setCards }) => {
   const finishCardsHandler = (id) => {
     const newCardsList = cards.map((todo, index) => {
       if (id === index) {
-        todo.working = !todo.working;
-      }
-      todo.id = index;
-      return todo;
+        return { ...todo, working: !todo.working };
+      } else return { ...todo, id: index };
     });
     setCards(newCardsList);
   };
-  
+
   return (
     <main className="body">
       <h2>Working.. 🔥</h2>
