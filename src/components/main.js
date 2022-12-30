@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 import ToDoList from "./ToDoList";
 
 const Main = ({ cards, setCards }) => {
@@ -15,10 +17,13 @@ const Main = ({ cards, setCards }) => {
     setCards(newCardsList);
   };
 
+  {
+    console.log(cards.id);
+  }
   return (
-    <main className="body">
+    <Body>
       <h2>Working.. 🔥</h2>
-      <div className="list">
+      <List>
         {cards.map((cards) => {
           if (cards.working) {
             return (
@@ -31,10 +36,10 @@ const Main = ({ cards, setCards }) => {
             );
           } else return null;
         })}
-      </div>
+      </List>
 
       <h2>Done..! 🎉</h2>
-      <div className="list">
+      <List>
         {cards.map((cards) => {
           if (!cards.working) {
             return (
@@ -47,9 +52,19 @@ const Main = ({ cards, setCards }) => {
             );
           } else return null;
         })}
-        <div className="list"></div>
-      </div>
-    </main>
+      </List>
+    </Body>
   );
 };
 export default Main;
+
+const Body = styled.main`
+  display: block;
+  padding: 0 24px;
+`;
+
+const List = styled.main`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`;

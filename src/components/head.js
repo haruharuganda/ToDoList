@@ -1,4 +1,6 @@
 import react, { useState } from "react";
+import styled from "styled-components";
+
 import Input from "./Input";
 
 const Head = ({ cards, setCards }) => {
@@ -19,35 +21,53 @@ const Head = ({ cards, setCards }) => {
   };
 
   return (
-    <header className="header">
-      <div className="input-container">
-        <div className="input-container">
-          <div className="input-group">
-            <label className="input-label">제목</label>
-            <input
-              type={"text"}
-              className="add-input"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            ></input>
-          </div>
-        </div>
-        <div className="input-container">
-          <div className="input-group">
-            <label className="input-label">내용</label>
-            <input
-              type={"text"}
-              className="add-input"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            ></input>
-          </div>
-        </div>
-      </div>
-      <div className="button">
-        <button onClick={addCardHandler}>추가하기</button>
-      </div>
-    </header>
+    <Header>
+      <InputContainer>
+        <Input
+          type={"text"}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        >
+          제목
+        </Input>
+        <Input
+          type={"text"}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        >
+          내용
+        </Input>
+      </InputContainer>
+      <Buttonbox>
+        <Button onClick={addCardHandler}>추가하기</Button>
+      </Buttonbox>
+    </Header>
   );
 };
 export default Head;
+
+const Header = styled.header`
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+`;
+const InputContainer = styled.div`
+  display: flex;
+  padding: 30px;
+  gap: 10px;
+`;
+const Buttonbox = styled.div`
+  padding: 30px;
+`;
+
+const Button = styled.button`
+  background-color: teal;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  height: 40px;
+  width: 140px;
+`;
